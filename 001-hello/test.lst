@@ -1,0 +1,30 @@
+     1                                  
+     2                                  
+     3                                  section .data
+     4 00000000 576164696D20616E64-         msg: db "Wadim and WadaTec and Nasm in 2025!))",0
+     4 00000009 205761646154656320-
+     4 00000012 616E64204E61736D20-
+     4 0000001B 696E20323032352129-
+     4 00000024 2900               
+     5 00000026 25730A00                    fmtstr: db "%s",10,0
+     6                                  section .bss
+     7                                  section .text
+     8                                  extern printf
+     9                                  
+    10                                  global main
+    11                                  main:
+    12 00000000 55                          push rbp
+    13 00000001 4889E5                      mov rbp, rsp
+    14                                      
+    15                                      
+    16 00000004 B800000000                  mov rax,0
+    17 00000009 48BF-                       mov rdi,fmtstr
+    17 0000000B [2600000000000000] 
+    18 00000013 48BE-                       mov rsi,msg
+    18 00000015 [0000000000000000] 
+    19 0000001D E8(00000000)                call printf
+    20                                     
+    21 00000022 4889EC                      mov rsp,rbp
+    22 00000025 5D                          pop rbp
+    23                                      
+    24 00000026 C3                      ret

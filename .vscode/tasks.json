@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build FASM",
+      "type": "shell",
+      "command": "${config:fasm.assemblerPath}",
+      "args": [
+        "c:\\NASM\\001-hello\\hello.asm",
+        "c:\\NASM\\001-hello\\hello.exe"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "INCLUDE": "C:/FASM/INCLUDE/"
+        }
+      }
+    }
+  ],
+  "activeFilePath": "c:\\NASM\\001-hello\\hello.asm",
+  "executionFilePath": "c:\\NASM\\001-hello\\hello.exe"
+}

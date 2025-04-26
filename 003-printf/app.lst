@@ -1,0 +1,28 @@
+     1                                  ;app.asm 003
+     2                                  section .data
+     3 00000000 486169666120323032-         msg db "Haifa 2025 & Gomel!",10,0
+     3 00000009 35202620476F6D656C-
+     3 00000012 210A00             
+     4                                  section .bss
+     5                                  
+     6                                  section .text
+     7                                      global _start
+     8                                  _start:
+     9                                  
+    10 00000000 55                      push rbp
+    11 00000001 4889E5                  mov rbp,rsp
+    12                                  
+    13 00000004 B801000000              mov rax ,1
+    14 00000009 BF01000000              mov rdi ,1
+    15 0000000E 48BE-                   mov rsi ,msg
+    15 00000010 [0000000000000000] 
+    16 00000018 BA17000000              mov rdx ,23
+    17 0000001D 0F05                    syscall
+    18                                  
+    19 0000001F 4889EC                  mov rsp,rbp
+    20 00000022 5D                      pop rbp
+    21                                  
+    22                                  ;exit
+    23 00000023 B83C000000              mov rax,60
+    24 00000028 BF00000000              mov rdi,0
+    25 0000002D 0F05                    syscall

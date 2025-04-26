@@ -1,0 +1,16 @@
+nasm -f elf64 app.asm
+ld -m elf_x86_64 -s -o app app.o
+
+#makefile для hello.asm начало
+app: app.o
+	gcc -o app app.o -no-pie  
+app.o:app.asm
+	nasm -f elf64 -g -F dwarf app.asm -l app.lst
+
+
+nasm -f elf64 app.asm -l app.lst
+ld  app.o -o app -no-pie
+
+
+nasm -felf64 test.asm -o test.o
+gcc test.o -o test.exe -no-pie
