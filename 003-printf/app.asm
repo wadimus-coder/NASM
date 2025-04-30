@@ -4,8 +4,8 @@ section .data
 section .bss
 
 section .text
-    global _start
-_start:
+    global main
+main:
 
 push rbp
 mov rbp,rsp

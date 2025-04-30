@@ -5,8 +5,8 @@ section .data
     msg2 db   "Victory!",10,0
 section .bss
 section .text
-    global _start
-_start:
+    global main
+main:
     push rbp
     mov rbp, rsp; for correct debugging
   

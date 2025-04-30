@@ -3,7 +3,7 @@
      3                                  section .data
      4 00000000 576164696D204F4B21-         msg db  "Wadim OK!",0
      4 00000009 00                 
-     5 0000000A 49742773206D792077-         format db "It's my words are: %s",10,0
+     5 0000000A 49742773206D792077-         format db "It's my words are: %s",10,0 ;формат вывода строки
      5 00000013 6F726473206172653A-
      5 0000001C 2025730A00         
      6                                  section .bss
@@ -13,14 +13,14 @@
     10 00000000 55                          push rbp
     11 00000001 4889E5                      mov rbp,rsp  ; func prologue
     12                                  
-    13 00000004 48BF-                       mov rdi,format
+    13 00000004 48BF-                       mov rdi,format ;первый аргумент для printf
     13 00000006 [0A00000000000000] 
-    14 0000000E 48BE-                       mov rsi,msg
+    14 0000000E 48BE-                       mov rsi,msg    ;второй аргумент для printf
     14 00000010 [0000000000000000] 
-    15 00000018 B800000000                  mov rax,0
-    16 0000001D E8(00000000)                call printf
+    15 00000018 B800000000                  mov rax,0      ;регистры xmm не применяются
+    16 0000001D E8(00000000)                call printf    ;вызов внешней printf
     17                                  
-    18 00000022 4889EC                      mov rsp,rbp
+    18 00000022 4889EC                      mov rsp,rbp    ;; func epuilogue
     19 00000025 5D                          pop rbp
     20                                  
     21                                      ;exit

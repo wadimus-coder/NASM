@@ -1,0 +1,45 @@
+     1                                  ; hello.asm начало
+     2                                  section .data
+     3 00000000 68656C6C6F2C204C61-         msg  db   "hello, Larnaca & Haifa!))",10,0
+     3 00000009 726E61636120262048-
+     3 00000012 616966612129290A00 
+     4 0000001B 477275736861206973-         msg1 db   "Grusha is my buddy.",10,0
+     4 00000024 206D79206275646479-
+     4 0000002D 2E0A00             
+     5 00000030 566963746F7279210A-         msg2 db   "Victory!",10,0
+     5 00000039 00                 
+     6                                  section .bss
+     7                                  section .text
+     8                                      global main
+     9                                  main:
+    10 00000000 55                          push rbp
+    11 00000001 4889E5                      mov rbp, rsp; for correct debugging
+    12                                    
+    13                                      ;print msg
+    14 00000004 B801000000                  mov rax,1    ;1 = write
+    15 00000009 BF01000000                  mov rdi,1    ;1 =to stdout
+    16 0000000E 48BE-                       mov rsi,msg  ;string to display
+    16 00000010 [0000000000000000] 
+    17 00000018 BA1E000000                  mov rdx,30   ;длина строки
+    18 0000001D 0F05                        syscall      ;системный вызов
+    19                                  a:
+    20                                      ;print msg1
+    21 0000001F B801000000                  mov rax,1
+    22 00000024 BF01000000                  mov rdi,1
+    23 00000029 48BE-                       mov rsi,msg1
+    23 0000002B [1B00000000000000] 
+    24 00000033 BA14000000                  mov rdx,20
+    25 00000038 0F05                        syscall
+    26                                  b:
+    27                                      ;print msg2
+    28 0000003A B801000000                  mov rax,1
+    29 0000003F BF01000000                  mov rdi,1
+    30 00000044 48BE-                       mov rsi,msg2
+    30 00000046 [3000000000000000] 
+    31 0000004E BA0A000000                  mov rdx,10
+    32 00000053 0F05                        syscall
+    33                                  
+    34                                      ;exit
+    35 00000055 B83C000000                  mov rax,60   ;60 -exit
+    36 0000005A BF00000000                  mov rdi,0    ;0 = success exit code
+    37 0000005F 0F05                        syscall      ;quit

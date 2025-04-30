@@ -12,7 +12,7 @@ main:
 
     mov rdi,format ;первый аргумент для printf
     mov rsi,msg    ;второй аргумент для printf
-    mov rax,0      ;htubcnhs xmm не применяются
+    mov rax,0      ;регистры xmm не применяются
     call printf    ;вызов внешней printf
 
     mov rsp,rbp    ;; func epuilogue
